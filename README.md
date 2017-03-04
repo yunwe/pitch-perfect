@@ -1,4 +1,4 @@
 # pitch-perfect
 Project From Udacity Course
 
-Simple iOS project that record voices and play with various effects
+Simple iOS project that record voices and allows to replay with various effects
