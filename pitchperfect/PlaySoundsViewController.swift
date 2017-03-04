@@ -18,6 +18,7 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var echoButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var durationLabel: UILabel!
     
     var recordedAudioURL: URL!
     var audioFile: AVAudioFile!
@@ -39,7 +40,11 @@ class PlaySoundsViewController: UIViewController {
         super.viewDidLoad()
         setupAudio()
         
-        // Do any additional setup after loading the view.
+        var duration: TimeInterval
+        try! duration = AVAudioPlayer(contentsOf: recordedAudioURL).duration
+        if let timeInSecond = duration.toInt(){
+            durationLabel.text = "Duration: \(Time(timeInSecond: timeInSecond).toString())"
+        }
     }
     
     
